@@ -15,6 +15,21 @@ class CreateExchangesTable extends Migration
     {
         Schema::create('exchanges', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('exchange_id');
+            $table->string('name');
+            $table->string('website');
+            $table->string('bg_hex');
+            $table->string('data_start');
+            $table->string('data_end');
+            $table->string('data_quote_start');
+            $table->string('data_quote_end');
+            $table->string('data_orderbook_start');
+            $table->string('data_orderbook_end');
+            $table->string('data_trade_start');
+            $table->string('data_trade_end');
+            $table->integer('data_trade_count');
+            $table->integer('data_symbols_count');
+            $table->text('description');
             $table->timestamps();
         });
     }

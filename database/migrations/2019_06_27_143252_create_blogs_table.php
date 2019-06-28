@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateCryptoCurrenciesTable extends Migration
+class CreateBlogsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,11 +13,8 @@ class CreateCryptoCurrenciesTable extends Migration
      */
     public function up()
     {
-        Schema::create('crypto_currencies', function (Blueprint $table) {
+        Schema::create('blogs', function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string('name');
-            $table->string('symbol');
-            $table->string('website');
             $table->timestamps();
         });
     }
@@ -29,6 +26,6 @@ class CreateCryptoCurrenciesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('crypto_currencies');
+        Schema::dropIfExists('blogs');
     }
 }

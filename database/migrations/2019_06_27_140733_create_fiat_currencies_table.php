@@ -15,6 +15,9 @@ class CreateFiatCurrenciesTable extends Migration
     {
         Schema::create('fiat_currencies', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('name');
+            $table->string('symbol');
+            $table->string('country');
             $table->timestamps();
         });
     }
