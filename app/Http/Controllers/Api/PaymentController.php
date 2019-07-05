@@ -37,7 +37,20 @@ class PaymentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->data;
+
+        foreach ($data as $paymentRequest) {
+            $newPayment = new Payment();
+            $object = json_decode(json_encode($paymentRequest), FALSE);
+            // Set coincap_id from the id
+            $newPayment->name = $object->name;
+            $newPayment->descirption = $object->descirption;
+            $newPayment->image = $object->image;
+            $newPayment->url = $object->url;
+            $newPayment->save();
+        }
+
+        return response()->json('Fiats saved successfully',  200);
     }
 
     /**
