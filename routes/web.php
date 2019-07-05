@@ -11,6 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', 'DashboardController@index');
+Route::resource('exchanges', 'ExchangeController');
+Route::resource('blogs', 'BlogController');
+Route::resource('fiats', 'FiatController');
+Route::resource('cryptos', 'CryptoController');
+Route::resource('countries', 'CountryController');
+Route::resource('', 'CountryController');
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
