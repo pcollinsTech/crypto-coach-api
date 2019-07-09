@@ -28,7 +28,7 @@
             <div class="row">
                 @include('partials.sidebar')
 
-                <main class="py-4">
+                <main class="col-sm-9 py-4">
                     @yield('content')
                 </main>
             </div>

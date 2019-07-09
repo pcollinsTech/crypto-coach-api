@@ -4,10 +4,10 @@
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <h2>Edit Crypto</h2>
+            <h2>Add New Country</h2>
         </div>
         <div class="pull-right">
-            <a class="btn btn-primary" href="{{ route('cryptos.index') }}"> Back</a>
+            <a class="btn btn-primary" href="{{ route('countries.index') }}"> Back</a>
         </div>
     </div>
 </div>
@@ -23,21 +23,20 @@
 </div>
 @endif
 
-<form action="{{ route('cryptos.update',$crypto->id) }}" method="POST">
+<form action="{{ route('countries.store') }}" method="POST">
     @csrf
-    @method('PUT')
 
     <div class="row">
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Name:</strong>
-                <input type="text" name="name" value="{{ $crypto->name }}" class="form-control" placeholder="Name">
+                <input type="text" name="name" class="form-control" placeholder="Name">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Symbol:</strong>
-                <input type="text" name="symbol" value="{{ $crypto->symbol }}" class="form-control" placeholder="Symbol">
+                <input type="text" name="symbol" class="form-control" placeholder="Symbol">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">

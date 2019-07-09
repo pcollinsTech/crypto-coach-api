@@ -1,6 +1,22 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="row">
+    <div class="col-lg-12 margin-tb">
+        <div class="pull-left">
+            <h2>Cryptos</h2>
+        </div>
+        <div class="pull-right">
+            <a class="btn btn-success" href="{{ route('cryptos.create') }}"> Add New Crypto</a>
+        </div>
+    </div>
+</div>
+
+@if ($message = Session::get('success'))
+<div class="alert alert-success">
+    <p>{{ $message }}</p>
+</div>
+@endif
 <table className="table table-dark">
 
     <thead>
@@ -9,7 +25,7 @@
                 Rank
             </th>
             <th scope="col">
-                Currency
+                Price (USD)
             </th>
             <th scope="col">
                 Symbol
@@ -38,13 +54,17 @@
     <tr>
         <th scope="row">{{$crypto->coin_marketcap_rank}}</th>
         <td>{{$crypto->name}}</td>
-        <td>{{$crypto->symbol}}</td>
-        <td>{{$crypto->circulating_supply}}</td>
-        <td>{{$crypto->total_supply}}</td>
-        <td>{{$crypto->max_supply}}</td>
-        <td>{{$crypto->volume_24hr_usd}}</td>
-        <td>{{$crypto->percent_change_24h_usd}}</td>
+        <td>$ {{round($crypto->price_usd, 2)}}</td>
+        <td>{{round($crypto->circulating_supply, 2)}}</td>
+        <td>{{round($crypto->total_supply,2)}}</td>
+        <td>{{round($crypto->max_supply,2)}}</td>
+        <td>{{round($crypto->volume_24hr_usd,2)}}</td>
+        <td>{{round($crypto->percent_change_24h_usd,2)}} %</td>
         <td>{{$crypto->data_last_updated}}</td>
+        <td>
+            <a class="btn btn-warning" href="{{ route('cryptos.show',$crypto->id) }}">Show</a>
+            <a class="btn btn-primary" href="{{ route('cryptos.edit',$crypto->id) }}">Edit</a>
+        </td>
     </tr>
     @endforeach
 

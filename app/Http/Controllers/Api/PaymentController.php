@@ -46,13 +46,13 @@ class PaymentController extends Controller
             $object = json_decode(json_encode($paymentRequest), FALSE);
             // Set coincap_id from the id
             $newPayment->name = $object->name;
-            $newPayment->descirption = $object->descirption;
+            $newPayment->description = $object->description;
             $newPayment->image = $object->image;
             $newPayment->url = $object->url;
             $newPayment->save();
         }
 
-        return response()->json('Fiats saved successfully',  200);
+        return response()->json('Payments saved successfully',  200);
     }
 
     /**

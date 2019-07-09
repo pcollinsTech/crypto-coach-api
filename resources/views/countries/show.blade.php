@@ -3,10 +3,10 @@
 <div class="row">
     <div class="col-lg-12 margin-tb">
         <div class="pull-left">
-            <h2> Show Crypto</h2>
+            <h2> Show Country</h2>
         </div>
         <div class="pull-right">
-            <a class="btn btn-primary" href="{{ route('cryptos.index') }}"> Back</a>
+            <a class="btn btn-primary" href="{{ route('countries.index') }}"> Back</a>
         </div>
     </div>
 </div>
@@ -15,13 +15,13 @@
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Name:</strong>
-            {{ $crypto->name }}
+            {{ $country->name }}
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
             <strong>Symbol:</strong>
-            {{ $crypto->symbol }}
+            {{ $country->symbol }}
         </div>
     </div>
 </div>

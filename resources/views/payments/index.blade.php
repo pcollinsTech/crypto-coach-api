@@ -6,29 +6,22 @@
     <thead>
         <tr>
             <th scope="col">
-                Rank
+                Name
             </th>
             <th scope="col">
-                Exchange
+                URL
             </th>
-            <th scope="col">
-                Website
-            </th>
-            <th scope="col">
-                24hr Trading Volume
-            </th>
-            <th scope="col">
-                Total Volume Percent
-            </th>
+
         </tr>
     </thead>
-    @foreach ($exchanges as $exchange)
+    @foreach ($payments as $payment)
     <tr>
-        <th scope="row">{{$exchange->rank}}</th>
-        <td>{{$exchange->name}}</td>
-        <td><a href={{$exchange->website}} target="__blank">{{$exchange->website}}</a></td>
-        <td>{{round($exchange->volume_24hr_usd)}}</td>
-        <td>{{$exchange->percent_total_volume}}</td>
+        <th scope="row">{{$payment->name}}</th>
+        <td>{{$payment->url}}</td>
+        <td>
+            <a class="btn btn-warning" href="{{ route('payments.show',$payment->id) }}">Show</a>
+            <a class="btn btn-primary" href="{{ route('payments.edit',$payment->id) }}">Edit</a>
+        </td>
     </tr>
     @endforeach
 

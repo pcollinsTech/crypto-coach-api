@@ -37,7 +37,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Symbol:</strong>
-                <input type="text" name="symbol" class="form-control" placeholder="Symbol">
+                <input type="text" name="symbol" value="{{ $exchange->symbol }}" class="form-control" placeholder="Symbol">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
