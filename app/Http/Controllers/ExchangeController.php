@@ -26,7 +26,9 @@ class ExchangeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function create()
-    { }
+    {
+        return view('exchanges.create');
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -36,7 +38,15 @@ class ExchangeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'symbol' => 'required',
+        ]);
+
+        Exchange::create($request->all());
+
+        return redirect()->route('exchanges.index')
+            ->with('success', 'Exchange created successfully.');
     }
 
     /**
@@ -45,9 +55,9 @@ class ExchangeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Exchange $exchange)
     {
-        //
+        return view('exchanges.show', compact('exchange'));
     }
 
     /**
@@ -56,9 +66,9 @@ class ExchangeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Exchange $exchange)
     {
-        //
+        return view('exchanges.edit', compact('exchange'));
     }
 
     /**
@@ -68,9 +78,17 @@ class ExchangeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Exchange $exchange)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'symbol' => 'required',
+        ]);
+
+        $exchange->update($request->all());
+
+        return redirect()->route('exchanges.index')
+            ->with('success', 'Exchange updated successfully.');
     }
 
     /**
@@ -79,8 +97,11 @@ class ExchangeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Exchange $exchange)
     {
-        //
+        $exchange->delete();
+
+        return redirect()->route('exchanges.index')
+            ->with('success', 'Exchange deleted successfully');
     }
 }
