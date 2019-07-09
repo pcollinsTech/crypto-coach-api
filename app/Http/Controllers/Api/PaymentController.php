@@ -5,7 +5,7 @@ namespace App\Http\Controllers\Api;
 use App\Payment;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-
+use App\Http\Resources\PaymentsResource;
 
 class PaymentController extends Controller
 {
@@ -16,7 +16,9 @@ class PaymentController extends Controller
      */
     public function index()
     {
-        //
+        $payments = PaymentsResource::collection(Payment::all());
+
+        return response()->json($payments, 200);
     }
 
     /**

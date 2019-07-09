@@ -15,6 +15,9 @@ use Illuminate\Http\Request;
 
 Route::group(['middleware' => 'throttle:410'], function () {
     Route::get('/exchanges', "Api\ExchangeController@index");
+    Route::get('/countries', "Api\CountryController@index");
+    Route::get('/payments', "Api\PaymentController@index");
+    Route::get('/fiats', "Api\FiatController@index");
     Route::get('/cryptos', "Api\CryptoController@index");
     Route::post('/exchangecoincap', 'Api\ExchangeController@storeCoinCap');
     Route::post('/storeRelations', 'Api\ExchangeController@storeRelations');

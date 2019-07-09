@@ -5,12 +5,13 @@ namespace App\Http\Controllers\Api;
 use Illuminate\Http\Request;
 use App\Crypto;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\CryptoResource;
 
 class CryptoController extends Controller
 {
     public function index()
     {
-        $cryptos = Crypto::all();
+        $cryptos = CryptoResource::collection(Crypto::all());
 
         return response()->json($cryptos, 200);
     }
