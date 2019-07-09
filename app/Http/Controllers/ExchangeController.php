@@ -14,7 +14,7 @@ class ExchangeController extends Controller
      */
     public function index()
     {
-        $exchanges = Exchange::all();
+        $exchanges = ExchangeListResource::collection(Exchange::all());
 
         return view('exchanges.index', compact('exchanges'));
     }
