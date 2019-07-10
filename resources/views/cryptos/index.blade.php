@@ -54,11 +54,11 @@
     <tr>
         <th scope="row">{{$crypto->coin_marketcap_rank}}</th>
         <td>{{$crypto->name}}</td>
-        <td>$ {{round($crypto->price_usd, 2)}}</td>
-        <td>{{round($crypto->circulating_supply, 2)}}</td>
-        <td>{{round($crypto->total_supply,2)}}</td>
-        <td>{{round($crypto->max_supply,2)}}</td>
-        <td>{{round($crypto->volume_24hr_usd,2)}}</td>
+        <td>$ {{number_format($crypto->price_usd)}}</td>
+        <td>{{number_format($crypto->circulating_supply)}}</td>
+        <td>{{number_format($crypto->total_supply)}}</td>
+        <td>{{number_format($crypto->max_supply)}}</td>
+        <td>{{number_format($crypto->volume_24hr_usd)}}</td>
         <td>{{round($crypto->percent_change_24h_usd,2)}} %</td>
         <td>{{$crypto->data_last_updated}}</td>
         <td>

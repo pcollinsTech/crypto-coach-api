@@ -50,7 +50,6 @@ class CreateExchangesTable extends Migration
             $table->text('description')->nullable();
             $table->text('fees')->nullable();
             $table->string('address')->nullable();
-            $table->json('payments')->nullable();
             $table->timestamps();
         });
     }

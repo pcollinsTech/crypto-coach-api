@@ -36,8 +36,32 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>Symbol:</strong>
-                <input type="text" name="symbol" value="{{ $exchange->symbol }}" class="form-control" placeholder="Symbol">
+                <strong>CoinCap ID:</strong>
+                <input type="text" name="coincap_id" value="{{ $exchange->coincap_id }}" class="form-control" placeholder="Symbol">
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Origin Country:</strong>
+                <input type="text" name="origin_country" value="{{ $exchange->origin_country }}" class="form-control" placeholder="Symbol">
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Operating Country:</strong>
+                <input type="text" name="operating_country" value="{{ $exchange->operating_country }}" class="form-control" placeholder="Symbol">
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Fees:</strong>
+                <textarea type="text" widt="250px" name="fees" value="{{ $exchange->fees }}" class="form-control" placeholder="Symbol">
+            </div>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12">
+            <div class="form-group">
+                <strong>Address:</strong>
+                <input type="text" name="address" value="{{ $exchange->address }}" class="form-control" placeholder="Symbol">
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">

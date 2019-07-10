@@ -14,15 +14,31 @@
 <div class="row">
     <div class="col-xs-12 col-sm-12 col-md-12">
         <div class="form-group">
+            <strong>Rank:</strong>
+            {{ $exchange->rank }}
+        </div>
+        <div class="form-group">
+            <strong>Name:</strong>
+            {{ $exchange->name }}
+        </div>
+        <div class="form-group">
+            <strong>CoinCap ID:</strong>
+            {{ $exchange->coincap_id }}
+        </div>
+        <div class="form-group">
+            <strong>website:</strong>
+            {{ $exchange->website }}
+        </div>
+        <div class="form-group">
+            <strong>Name:</strong>
+            {{ $exchange->name }}
+        </div>
+        <div class="form-group">
             <strong>Name:</strong>
             {{ $exchange->name }}
         </div>
     </div>
     <div class="col-xs-12 col-sm-12 col-md-12">
-        <div class="form-group">
-            <strong>Symbol:</strong>
-            {{ $exchange->symbol }}
-        </div>
     </div>
 </div>
 @endsection
