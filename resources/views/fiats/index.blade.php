@@ -11,15 +11,7 @@
             <th scope="col">
                 Symbol
             </th>
-            <th scope="col">
-                Website
-            </th>
-            <th scope="col">
-                24hr Trading Volume
-            </th>
-            <th scope="col">
-                Total Volume Percent
-            </th>
+
         </tr>
     </thead>
     @foreach ($fiats as $fiat)

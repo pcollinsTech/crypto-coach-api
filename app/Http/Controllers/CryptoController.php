@@ -26,7 +26,7 @@ class CryptoController extends Controller
      */
     public function create()
     {
-        //
+        return view('cryptos.create');
     }
 
     /**
@@ -37,7 +37,14 @@ class CryptoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+        ]);
+
+        Crypto::create($request->all());
+
+        return redirect()->route('cryptos.index')
+            ->with('success', 'Crypto created successfully.');
     }
 
     /**
@@ -46,9 +53,9 @@ class CryptoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Crypto $crypto)
     {
-        //
+        return view('cryptos.show', compact('crypto'));
     }
 
     /**
@@ -57,9 +64,9 @@ class CryptoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Crypto $crypto)
     {
-        //
+        return view('cryptos.edit', compact('crypto'));
     }
 
     /**
@@ -69,9 +76,28 @@ class CryptoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Crypto $crypto)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'image_url' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
+        ]);
+        if ($request->hasFile('image_url')) {
+            $image = $request->file('image_url');
+            $name = $image->getClientOriginalName();
+            $imageName = time() . '.' . $name;
+
+            $image->move(public_path('images'), $imageName);
+
+            $crypto->image_url = $imageName;
+
+            $crypto->save();
+        }
+
+        // $crypto->update($request->all());
+
+        return redirect()->route('cryptos.index')
+            ->with('success', 'Crypto updated successfully.');
     }
 
     /**
@@ -80,8 +106,11 @@ class CryptoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Crypto $crypto)
     {
-        //
+        $crypto->delete();
+
+        return redirect()->route('cryptos.index')
+            ->with('success', 'Crypto deleted successfully');
     }
 }

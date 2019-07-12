@@ -15,6 +15,12 @@ class Exchange extends Model
         'payments' => 'array'
     ];
 
+
+    public function getImageAttribute()
+    {
+        return $this->profile_image;
+    }
+
     function cryptos()
     {
         return $this->belongsToMany('App\Crypto');

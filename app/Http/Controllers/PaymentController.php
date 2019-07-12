@@ -3,11 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Exchange;
-use App\Http\Resources\ExchangeListResource;
-use Image;
+use App\Payment;
 
-class ExchangeController extends Controller
+class PaymentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,9 +14,9 @@ class ExchangeController extends Controller
      */
     public function index()
     {
-        $exchanges = ExchangeListResource::collection(Exchange::all());
+        $payments = Payment::all();
 
-        return view('exchanges.index', compact('exchanges'));
+        return view('payments.index', compact('payments'));
     }
 
     /**
@@ -28,7 +26,7 @@ class ExchangeController extends Controller
      */
     public function create()
     {
-        return view('exchanges.create');
+        return view('payments.create');
     }
 
     /**
@@ -43,10 +41,10 @@ class ExchangeController extends Controller
             'name' => 'required',
         ]);
 
-        Exchange::create($request->all());
+        Payment::create($request->all());
 
-        return redirect()->route('exchanges.index')
-            ->with('success', 'Exchange created successfully.');
+        return redirect()->route('payments.index')
+            ->with('success', 'Payment created successfully.');
     }
 
     /**
@@ -55,9 +53,9 @@ class ExchangeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Exchange $exchange)
+    public function show(Payment $payment)
     {
-        return view('exchanges.show', compact('exchange'));
+        return view('payments.show', compact('payment'));
     }
 
     /**
@@ -66,9 +64,9 @@ class ExchangeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Exchange $exchange)
+    public function edit(Payment $payment)
     {
-        return view('exchanges.edit', compact('exchange'));
+        return view('payments.edit', compact('payment'));
     }
 
     /**
@@ -78,7 +76,7 @@ class ExchangeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Exchange $exchange)
+    public function update(Request $request, Payment $payment)
     {
         $request->validate([
             'name' => 'required',
@@ -91,14 +89,14 @@ class ExchangeController extends Controller
 
             $image->move(public_path('images'), $imageName);
 
-            $exchange->image_url = $imageName;
+            $payment->image_url = $imageName;
 
-            $exchange->save();
+            $payment->save();
         }
-        // $exchange->update($request->all());
+        $payment->update($request->all());
 
-        return redirect()->route('exchanges.index')
-            ->with('success', 'Exchange updated successfully.');
+        return redirect()->route('payments.index')
+            ->with('success', 'Payment updated successfully.');
     }
 
     /**
@@ -107,11 +105,11 @@ class ExchangeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Exchange $exchange)
+    public function destroy(Payment $payment)
     {
-        $exchange->delete();
+        $payment->delete();
 
-        return redirect()->route('exchanges.index')
-            ->with('success', 'Exchange deleted successfully');
+        return redirect()->route('payments.index')
+            ->with('success', 'Payment deleted successfully');
     }
 }

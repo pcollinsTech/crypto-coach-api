@@ -17,6 +17,7 @@ class CreateCountriesTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('symbol');
+            $table->string('image_url')->nullable();
             $table->timestamps();
         });
     }

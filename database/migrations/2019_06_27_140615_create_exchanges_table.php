@@ -18,7 +18,8 @@ class CreateExchangesTable extends Migration
             $table->string('coincap_id')->nullable();
             $table->string('name')->nullable();
             $table->string('origin_country')->nullable();
-            $table->boolean('operating_country')->nullable();
+            $table->string('image_url')->nullable();
+            $table->string('operating_country')->nullable();
             $table->boolean('hacked')->nullable();
             $table->boolean('lending')->nullable();
             $table->boolean('margin_trading')->nullable();
@@ -33,6 +34,7 @@ class CreateExchangesTable extends Migration
             $table->integer('trading_pairs')->nullable();
             $table->string('instagram_link')->nullable();
             $table->string('twitter_link')->nullable();
+            $table->string('linkedin_link')->nullable();
             $table->string('facebook_link')->nullable();
             $table->string('grade')->nullable();
             $table->string('rank')->nullable();

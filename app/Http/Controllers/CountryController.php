@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Country;
 
 class CountryController extends Controller
 {
@@ -13,7 +14,9 @@ class CountryController extends Controller
      */
     public function index()
     {
-        //
+        $countries = Country::all();
+
+        return view('countries.index', compact('countries'));
     }
 
     /**
@@ -23,7 +26,7 @@ class CountryController extends Controller
      */
     public function create()
     {
-        //
+        return view('countries.create');
     }
 
     /**
@@ -34,7 +37,14 @@ class CountryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+        ]);
+
+        Country::create($request->all());
+
+        return redirect()->route('countries.index')
+            ->with('success', 'Country created successfully.');
     }
 
     /**
@@ -43,9 +53,9 @@ class CountryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Country $country)
     {
-        //
+        return view('countries.show', compact('country'));
     }
 
     /**
@@ -54,9 +64,9 @@ class CountryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Country $country)
     {
-        //
+        return view('countries.edit', compact('country'));
     }
 
     /**
@@ -66,9 +76,28 @@ class CountryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Country $country)
     {
-        //
+        $request->validate([
+            'name' => 'required',
+            'image_url' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
+        ]);
+        if ($request->hasFile('image_url')) {
+            $image = $request->file('image_url');
+            $name = $image->getClientOriginalName();
+            $imageName = time() . '.' . $name;
+
+            $image->move(public_path('images'), $imageName);
+
+            $country->image_url = $imageName;
+
+            $country->save();
+        }
+
+        // $country->update($request->all());
+
+        return redirect()->route('countries.index')
+            ->with('success', 'Country updated successfully.');
     }
 
     /**
@@ -77,8 +106,11 @@ class CountryController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Country $country)
     {
-        //
+        $country->delete();
+
+        return redirect()->route('countries.index')
+            ->with('success', 'Country deleted successfully');
     }
 }

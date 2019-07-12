@@ -15,6 +15,7 @@ class CreateCryptosTable extends Migration
     {
         Schema::create('cryptos', function (Blueprint $table) {
             $table->bigIncrements('id');
+            $table->string('image_url')->nullable();
             $table->string('coincap_id')->nullable();
             $table->string('coin_marketap_id')->nullable();
             $table->string('coin_marketcap_slug')->nullable();

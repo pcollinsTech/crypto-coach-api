@@ -44,8 +44,8 @@
         <th scope="row">{{$exchange->rank}}</th>
         <td>{{$exchange->name}}</td>
         <td><a href={{$exchange->website}} target="__blank">{{$exchange->website}}</a></td>
-        <td>{{round($exchange->volume_24hr_usd, 2)}}</td>
-        <td>{{round($exchange->percent_total_volume, 2)}}</td>
+        <td>$ {{number_format($exchange->volume_24hr_usd)}}</td>
+        <td>{{round($exchange->percent_total_volume, 2)}} %</td>
         <td>
             <a class="btn btn-warning" href="{{ route('exchanges.show',$exchange->id) }}">Show</a>
             <a class="btn btn-primary" href="{{ route('exchanges.edit',$exchange->id) }}">Edit</a>

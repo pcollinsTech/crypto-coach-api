@@ -53,7 +53,6 @@ class ExchangeListResource extends JsonResource
             'description' => $this->description,
             'fees' => $this->fees,
             'address' => $this->address,
-            'payments' => $this->payments,
             'coins' => CryptoResource::collection($this->cryptos)->pluck('id'),
             'fiats' => FiatResource::collection($this->fiats)->pluck('id'),
             'countries' => CountryResource::collection($this->countries)->pluck('id'),
