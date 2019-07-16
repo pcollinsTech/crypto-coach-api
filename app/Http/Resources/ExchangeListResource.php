@@ -6,6 +6,7 @@ use Illuminate\Http\Resources\Json\JsonResource;
 use App\Http\Resources\CryptoResource;
 use App\Http\Resources\FiatResource;
 use App\Http\Resources\CountryResource;
+use App\Http\Resources\PaymentResource;
 
 class ExchangeListResource extends JsonResource
 {
@@ -53,8 +54,9 @@ class ExchangeListResource extends JsonResource
             'description' => $this->description,
             'fees' => $this->fees,
             'address' => $this->address,
-            'coins' => CryptoResource::collection($this->cryptos)->pluck('id'),
+            'cryptos' => CryptoResource::collection($this->cryptos)->pluck('id'),
             'fiats' => FiatResource::collection($this->fiats)->pluck('id'),
+            'payments' => PaymentResource::collection($this->payments)->pluck('id'),
             'countries' => CountryResource::collection($this->countries)->pluck('id'),
         ];
     }

@@ -13,12 +13,12 @@ class CreateExchangePaymentTable extends Migration
      */
     public function up()
     {
-        Schema::create('exchange_paymment', function (Blueprint $table) {
+        Schema::create('exchange_payment', function (Blueprint $table) {
             $table->unsignedBigInteger('exchange_id')->nullable();
             $table->unsignedBigInteger('payment_id')->nullable();
         });
 
-        Schema::table('exchange_paymment', function (Blueprint $table) {
+        Schema::table('exchange_payment', function (Blueprint $table) {
 
             $table->foreign('exchange_id')->references('id')->on('exchanges');
             $table->foreign('payment_id')->references('id')->on('payments');
