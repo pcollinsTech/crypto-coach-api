@@ -19,6 +19,7 @@ Route::group(['middleware' => 'throttle:410'], function () {
     Route::get('/payments', "Api\PaymentController@index");
     Route::get('/fiats', "Api\FiatController@index");
     Route::get('/cryptos', "Api\CryptoController@index");
+    Route::get('/posts', "Api\PostController@index");
     Route::post('/exchangecoincap', 'Api\ExchangeController@storeCoinCap');
     Route::post('/storeRelations', 'Api\ExchangeController@storeRelations');
     Route::post('/cryptocoincap', 'Api\CryptoController@storeCoinCap');

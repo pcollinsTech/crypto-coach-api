@@ -7,6 +7,9 @@
             <a class="nav-link" href="/exchanges">Exchanges</a>
         </li>
         <li class="nav-item">
+            <a class="nav-link" href="/posts">Posts</a>
+        </li>
+        <li class="nav-item">
             <a class="nav-link" href="/cryptos">Cryptos</a>
         </li>
         <li class="nav-item">

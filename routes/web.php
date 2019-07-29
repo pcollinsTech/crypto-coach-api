@@ -13,7 +13,7 @@
 
 Route::get('/', 'DashboardController@index');
 Route::resource('exchanges', 'ExchangeController');
-Route::resource('blogs', 'BlogController');
+Route::resource('posts', 'PostController');
 Route::resource('fiats', 'FiatController');
 Route::resource('payments', 'PaymentController');
 Route::resource('cryptos', 'CryptoController');

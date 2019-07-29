@@ -2,7 +2,7 @@
 
 /** @var \Illuminate\Database\Eloquent\Factory $factory */
 
-use App\User;
+use App\Post;
 use Illuminate\Support\Str;
 use Faker\Generator as Faker;
 use Illuminate\Support\Facades\Hash;
@@ -18,21 +18,12 @@ use Illuminate\Support\Facades\Hash;
 |
 */
 
-$factory->define(User::class, function (Faker $faker) {
-    return [
-        'first_name' => 'Phil',
-        'last_name' => 'Phil',
-        'email' => 'phil.collins089@gmail.com',
-        'email_verified_at' => now(),
-        'password' => Hash::make('12345678'), // password
-        'remember_token' => Str::random(10),
-    ];
-});
 
-$factory->define(Blog::class, function (Faker $faker) {
+$factory->define(Post::class, function (Faker $faker) {
     return [
         'user_id' => 1,
-        'title' => $faker->sentance,
+        'title' => $faker->sentence,
+        'slug' => 'blog-post',
         'content' => $faker->paragraph,
         'featured_image_url' => 'default.jpg',
         'image_url' => 'default.jpg',
