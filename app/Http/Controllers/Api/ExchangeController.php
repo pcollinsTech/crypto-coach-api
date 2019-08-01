@@ -77,22 +77,4 @@ class ExchangeController extends Controller
 
         return response()->json('Exchanges saved successfully',  200);
     }
-
-
-    public function update(Request $request, $locationId)
-    {
-        $location = $this->locationRepository->findOrFail($locationId);
-
-        $locationData = $request->only(['website', 'address', 'telephone', 'email', 'ages', 'menus', 'payments', 'opening_times', 'disabled_access', 'dress_code', 'miscellaneous', 'complaints', 'jobs_and_careers', 'events', 'take_away', 'booking_configuration']);
-
-        $this->locationRepository->update($location, $locationData);
-
-        $facebookPage = $this->locationRepository->getFacebookPage($location);
-
-        $this->locationRepository->setDraft($location, false);
-        $this->facebookPageRepository->setDraft($facebookPage, false);
-
-
-        return response('Chatbot updated successfully',  200);
-    }
 }

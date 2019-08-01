@@ -15,4 +15,12 @@ class PostController extends Controller
 
         return response()->json($posts, 200);
     }
+    public function show($param)
+    {
+        $post = PostResource::collection(Post::where('id', $param)
+            ->orWhere('slug', $param)
+            ->firstOrFail());
+
+        return response()->json($post, 200);
+    }
 }
