@@ -33,17 +33,17 @@
                 <strong>Name:</strong>
                 <input type="text" name="name" value="{{ $payment->name }}" class="form-control" placeholder="Name">
             </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
-                <strong>URL:</strong>
+                <strong>Image Url:</strong>
+                <input type="text" name="image_url" value="{{ $payment->image_url }}" class="form-control" placeholder="Name">
+            </div>
+            <div class="form-group">
+                <strong>Website:</strong>
                 <input type="text" name="url" value="{{ $payment->url }}" class="form-control" placeholder="Name">
             </div>
-        </div>
-        <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Description:</strong>
-                <textarea width="150" type="text" name="description" value="{{ $payment->description }}" class="form-control" placeholder="Symbol">
+                <textarea width="150" type="text" name="description" class="form-control" placeholder="Description">{{$payment->descriptipn}}</textarea>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">

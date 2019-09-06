@@ -40,7 +40,7 @@ class CryptoController extends Controller
         $request->validate([
             'name' => 'required',
         ]);
-
+        
         Crypto::create($request->all());
 
         return redirect()->route('cryptos.index')
@@ -80,21 +80,41 @@ class CryptoController extends Controller
     {
         $request->validate([
             'name' => 'required',
-            'image_url' => 'nullable|image|mimes:jpeg,png,jpg,gif|max:2048'
         ]);
-        if ($request->hasFile('image_url')) {
-            $image = $request->file('image_url');
-            $name = $image->getClientOriginalName();
-            $imageName = time() . '.' . $name;
-
-            $image->move(public_path('images'), $imageName);
-
-            $crypto->image_url = $imageName;
-
-            $crypto->save();
-        }
-
-        // $crypto->update($request->all());
+        $crypto->image_url = $request->image_url;
+        $crypto->name = $request->name;
+        $crypto->slug = $request->slug;
+        $crypto->symbol = $request->symbol;
+        $crypto->website = $request->website;
+        $crypto->technical_doc_url = $request->technical_doc_url;
+        $crypto->source_code_url = $request->source_code_url;
+        $crypto->facebook_url = $request->facebook_url;
+        $crypto->instagram_url = $request->instagram_url;
+        $crypto->twitter_url = $request->twitter_url;
+        $crypto->linkedin_url = $request->linkedin_url;
+        $crypto->reddit_url = $request->reddit_url;
+        $crypto->message_board_urls = $request->source_code_url;
+        $crypto->announcement_urls = $request->source_code_url;
+        $crypto->chat_urls = $request->source_code_url;
+        $crypto->explorer_urls = $request->source_code_url;
+        $crypto->data_last_updated = $request->
+        $crypto->price_last_updated = $request->
+        $crypto->date_added = $request->
+        $crypto->mineable = $request->mineable;
+        $crypto->num_market_pairs = $request->num_market_pairs;
+        $crypto->coin_marketcap_rank = $request->coin_marketcap_rank;
+        $crypto->circulating_supply = $request->circulating_supply;
+        $crypto->market_cap = $request->market_cap;
+        $crypto->total_supply = $request->total_supply;
+        $crypto->max_supply = $request->max_supply;
+        $crypto->percent_change_24h_usd = $request->percent_change_24h_usd;
+        $crypto->price_usd = $request->price_usd;
+        $crypto->percent_change_1h_usd = $request->percent_change_1h_usd;
+        $crypto->volume_24h_usd = $request->volume_24h_usd;
+        $crypto->percent_change_7d_usd = $request->percent_change_7d_usd;
+        $crypto->vwap_24hr = $request->vwap_24hr;
+        $crypto->description = $request->description;
+        $crypto->fees = $request->fees;
 
         return redirect()->route('cryptos.index')
             ->with('success', 'Crypto updated successfully.');

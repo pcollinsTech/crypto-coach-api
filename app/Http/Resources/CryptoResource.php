@@ -36,6 +36,15 @@ class CryptoResource extends JsonResource
             'percent_change_24h_usd' => $this->percent_change_24h_usd,
             'percent_change_7d_usd' => $this->percent_change_7d_usd,
             'vwap_24hr' => $this->vwap_24hr,
+            'website' => $this->website,
+            'technical_doc_url' => $this->technical_doc_url,
+            'image_url' => $this->image_url,
+            'description' => $this->description,
+            'twitter_url' => $this->twitter_url,
+            'message_board_urls' => $this->message_board_urls,
+            'explorer_urls' => $this->explorer_urls,
+            'chat_urls' => $this->chat_urls,
+            'announcement_urls' => $this->announcement_urls,
         ];
     }
 }

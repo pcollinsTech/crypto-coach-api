@@ -11,13 +11,14 @@
 |
 */
 
-Route::get('/', 'DashboardController@index');
-Route::resource('exchanges', 'ExchangeController');
-Route::resource('posts', 'PostController');
-Route::resource('fiats', 'FiatController');
-Route::resource('payments', 'PaymentController');
-Route::resource('cryptos', 'CryptoController');
-Route::resource('countries', 'CountryController');
-Route::group(['middleware' => 'auth'], function () { });
+Route::group(['middleware' => 'auth'], function () {
+    Route::get('/', 'DashboardController@index');
+    Route::resource('exchanges', 'ExchangeController');
+    Route::resource('posts', 'PostController');
+    Route::resource('fiats', 'FiatController');
+    Route::resource('payments', 'PaymentController');
+    Route::resource('cryptos', 'CryptoController');
+    Route::resource('countries', 'CountryController');
+});
 
 Auth::routes();

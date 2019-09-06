@@ -16,7 +16,10 @@ class CreateExchangesTable extends Migration
         Schema::create('exchanges', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('coincap_id')->nullable();
+            $table->string('coincap_slug')->nullable();
+            $table->string('coin_marketap_id')->nullable();
             $table->string('name')->nullable();
+            $table->string('slug')->nullable();
             $table->string('origin_country')->nullable();
             $table->string('image_url')->nullable();
             $table->string('operating_country')->nullable();
@@ -32,26 +35,30 @@ class CreateExchangesTable extends Migration
             $table->decimal('volume_24hr_usd', 40, 20)->nullable();
             $table->string('coincap_updated_at')->nullable();
             $table->integer('trading_pairs')->nullable();
-            $table->string('instagram_link')->nullable();
-            $table->string('twitter_link')->nullable();
-            $table->string('linkedin_link')->nullable();
-            $table->string('facebook_link')->nullable();
+            $table->string('instagram_url')->nullable();
+            $table->string('twitter_url')->nullable();
+            $table->string('linkedin_url')->nullable();
+            $table->string('facebook_url')->nullable();
+            $table->string('blog_url')->nullable();
+            $table->string('fee_url')->nullable();
+            $table->json('chat_urls')->nullable();
             $table->string('grade')->nullable();
             $table->string('rank')->nullable();
             $table->string('bg_hex')->nullable();
-            $table->string('data_start')->nullable();
-            $table->string('data_end')->nullable();
+            $table->string('date_launched')->nullable();
+            $table->string('first_historical_data')->nullable();
+            $table->string('last_historical_data')->nullable();
             $table->string('data_quote_start')->nullable();
             $table->string('data_quote_end')->nullable();
             $table->string('data_orderbook_start')->nullable();
             $table->string('data_orderbook_end')->nullable();
             $table->string('data_trade_start')->nullable();
             $table->string('data_trade_end')->nullable();
+            $table->text('notice')->nullable();
             $table->integer('data_trade_count')->nullable();
             $table->integer('data_symbols_count')->nullable();
             $table->text('description')->nullable();
             $table->text('fees')->nullable();
-            $table->string('address')->nullable();
             $table->timestamps();
         });
     }

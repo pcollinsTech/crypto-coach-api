@@ -1,25 +1,25 @@
-<nav class="col-sm-3 col-md-2 hidden-xs-down bg-faded sidebar">
+<nav class="col-sm-3 hidden-xs-down bg-faded sidebar">
     <ul class="nav nav-pills flex-column">
         <li class="nav-item">
-            <a class="nav-link active" href="/">Dashboard</a>
+            <a class="nav-link {{ Request::is('/') ? 'active' : '' }}" href="/">Dashboard</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/exchanges">Exchanges</a>
+            <a class="nav-link {{ Request::is('exchanges') ? 'active' : '' }}" href="/exchanges">Exchanges</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/posts">Posts</a>
+            <a class="nav-link {{ Request::is('posts') ? 'active' : '' }}" href="/posts">Posts</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/cryptos">Cryptos</a>
+            <a class="nav-link {{ Request::is('cryptos') ? 'active' : '' }}" href="/cryptos">Cryptos</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/fiats">Fiats</a>
+            <a class="nav-link {{ Request::is('fiats') ? 'active' : '' }}" href="/fiats">Fiats</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/payments">Payments</a>
+            <a class="nav-link {{ Request::is('payments') ? 'active' : '' }}" href="/payments">Payments</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="/countries">Countries</a>
+            <a class="nav-link {{ Request::is('countries') ? 'active' : '' }}" href="/countries">Countries</a>
         </li>
     </ul>
 

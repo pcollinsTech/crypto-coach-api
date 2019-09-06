@@ -10,10 +10,10 @@ class Exchange extends Model
     protected  $guarded = [
         'id'
     ];
-
     protected $casts = [
-        'payments' => 'array'
+        'chat_urls' => 'array',
     ];
+
 
 
     public function getImageAttribute()

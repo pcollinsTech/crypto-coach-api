@@ -19,7 +19,6 @@
 @endif
 
 <table className="table table-dark">
-
     <thead>
         <tr>
             <th scope="col">
@@ -42,7 +41,7 @@
     @foreach ($exchanges as $exchange)
     <tr class="text-center">
         <th scope="row">{{$exchange->rank}}</th>
-        <td>{{$exchange->name}}</td>
+        <td><a href="/exchanges/{{$exchange->id}}">{{$exchange->name}}</a></td>
         <td><a href={{$exchange->website}} target="__blank">{{$exchange->website}}</a></td>
         <td>$ {{number_format($exchange->volume_24hr_usd)}}</td>
         <td>{{round($exchange->percent_total_volume, 2)}} %</td>

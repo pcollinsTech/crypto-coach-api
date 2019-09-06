@@ -45,22 +45,19 @@
             <th scope="col">
                 Percent change 24hr
             </th>
-            <th scope="col">
-                Date Last Updated
-            </th>
+            
         </tr>
     </thead>
     @foreach ($cryptos as $crypto)
     <tr>
-        <th scope="row">{{$crypto->coin_marketcap_rank}}</th>
-        <td>{{$crypto->name}}</td>
+    <th scope="row"><a href="/cryptos/{{$crypto->id}}"></a>{{$crypto->coin_marketcap_rank}}</th>
+        <td><a href="/cryptos/{{$crypto->id}}">{{$crypto->name}}</a></td>
         <td>$ {{number_format($crypto->price_usd)}}</td>
         <td>{{number_format($crypto->circulating_supply)}}</td>
         <td>{{number_format($crypto->total_supply)}}</td>
         <td>{{number_format($crypto->max_supply)}}</td>
-        <td>{{number_format($crypto->volume_24hr_usd)}}</td>
+        <td>{{number_format($crypto->volume_24h_usd)}}</td>
         <td>{{round($crypto->percent_change_24h_usd,2)}} %</td>
-        <td>{{$crypto->data_last_updated}}</td>
         <td>
             <a class="btn btn-warning" href="{{ route('cryptos.show',$crypto->id) }}">Show</a>
             <a class="btn btn-primary" href="{{ route('cryptos.edit',$crypto->id) }}">Edit</a>

@@ -26,7 +26,7 @@ class ExchangeController extends Controller
         foreach ($data as $exchangeRequest) {
             $object = json_decode(json_encode($exchangeRequest), FALSE);
             $exchange = Exchange::where('name', $object->name)->first();
-            $exchange->centralized = $object->centralized;
+            // $exchange->centralized = $object->centralized;
             $exchange->beginner_friendly = $object->beginner_friendly;
 
             $cryptos = [];

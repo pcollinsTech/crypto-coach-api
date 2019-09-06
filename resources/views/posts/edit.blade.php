@@ -37,7 +37,7 @@
         <div class="col-xs-12 col-sm-12 col-md-12">
             <div class="form-group">
                 <strong>Body:</strong>
-                <textarea name="symbol" value="{{ $post->symbol }}" class="form-control" placeholder="Symbol">
+                <textarea name="content" class="form-control" placeholder="Symbol">{{ $post->content }}</textarea>
             </div>
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 text-center">
