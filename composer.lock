@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "34eb99e106dd9dbe3df705aeed24b50a",
+    "content-hash": "c977a2e962d3d46d39806104615ed2f4",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -3546,16 +3546,16 @@
         },
         {
             "name": "laravel/homestead",
-            "version": "v9.0.7",
+            "version": "v9.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/laravel/homestead.git",
-                "reference": "0add54057b5a4f8a4adf78a6c382131257aec090"
+                "reference": "a3534aca2d30b464a04580f48cde47b130edbfb5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/laravel/homestead/zipball/0add54057b5a4f8a4adf78a6c382131257aec090",
-                "reference": "0add54057b5a4f8a4adf78a6c382131257aec090",
+                "url": "https://api.github.com/repos/laravel/homestead/zipball/a3534aca2d30b464a04580f48cde47b130edbfb5",
+                "reference": "a3534aca2d30b464a04580f48cde47b130edbfb5",
                 "shasum": ""
             },
             "require": {
@@ -3571,11 +3571,6 @@
                 "bin/homestead"
             ],
             "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "4.0-dev"
-                }
-            },
             "autoload": {
                 "psr-4": {
                     "Laravel\\Homestead\\": "src/"
@@ -3592,7 +3587,7 @@
                 }
             ],
             "description": "A virtual machine for web artisans.",
-            "time": "2019-07-22T17:55:23+00:00"
+            "time": "2019-08-31T12:29:12+00:00"
         },
         {
             "name": "mockery/mockery",

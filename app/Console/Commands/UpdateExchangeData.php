@@ -76,15 +76,15 @@ class UpdateExchangeData extends Command
 
         foreach ($data->{'data'} as $exchangeRequest) {
 
-            $this->updateExchangeMetaData($exchangeRequest->id, $exchangeRequest->slug);
             Exchange::updateOrCreate(['coincap_id' => $exchangeRequest->slug], [
                 "name" => $exchangeRequest->name,
                 "slug" => $exchangeRequest->slug,
                 "first_historical_data" => $exchangeRequest->first_historical_data,
                 "last_historical_data" => $exchangeRequest->last_historical_data,
-
-            ]);
+                
+                ]);
             sleep(3);
+            $this->updateExchangeMetaData($exchangeRequest->id, $exchangeRequest->slug);
         }
     }
 }

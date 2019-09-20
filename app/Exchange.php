@@ -23,21 +23,21 @@ class Exchange extends Model
 
     function cryptos()
     {
-        return $this->belongsToMany('App\Crypto');
+        return $this->hasMany('App\Crypto');
     }
 
     function fiats()
     {
-        return $this->belongsToMany('App\Fiat');
+        return $this->hasMany('App\Fiat');
     }
 
     function countries()
     {
-        return $this->belongsToMany('App\Country');
+        return $this->hasMany('App\Country');
     }
 
     function payments()
     {
-        return $this->belongsToMany('App\Payment');
+        return $this->hasMany('App\Payment');
     }
 }
